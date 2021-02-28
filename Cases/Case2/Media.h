@@ -22,12 +22,14 @@ class Media{
     void Play(){
         cout << "" << endl;
         cout << "Is playing the media : " << hashNames[id] << endl;
+        State = true;
     }
 
     // Print a signal of the media was stopped
     void Stop(){
         cout << "" << endl;
         cout << "The media : " << hashNames[id] << " was stopped" << endl;
+        State = false;
     }
 
     public:

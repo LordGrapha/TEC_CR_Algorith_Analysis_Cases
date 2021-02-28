@@ -8,6 +8,10 @@ class Music : public Media{
 
     private:
     string Song = "Pepe";
+
+    void SetSong(int pSong){
+        Song = pSong;
+    }
     
     public:
     Music(int pId):Media(pId){}
@@ -16,9 +20,6 @@ class Music : public Media{
         return Song;
     }
 
-    void SetSong(int pSong){
-        Song = pSong;
-    }
 
     void ChangeSong(int pSong){
         cout << "" << endl;

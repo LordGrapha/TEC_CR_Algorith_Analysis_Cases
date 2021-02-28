@@ -9,15 +9,15 @@ class Television : public Media{
     private:
     int Channel = 1;
     
+    void SetChannel(int pChannel){
+        Channel = pChannel;
+    }
+
     public:
     Television(int pId):Media(pId){}
 
     int GetChannel(){
         return Channel;
-    }
-
-    void SetChannel(int pChannel){
-        Channel = pChannel;
     }
 
     void ChangeChannel(int pChannel){

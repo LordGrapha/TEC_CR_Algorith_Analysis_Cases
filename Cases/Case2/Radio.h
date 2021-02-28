@@ -9,6 +9,10 @@ class Radio : public Media{
     private:
     double frequency = 90.0;
     
+    void SetFrequency(int pfrequency){
+        frequency = pfrequency;
+    }
+
     public:
     Radio(int pId):Media(pId){}
 
@@ -16,9 +20,6 @@ class Radio : public Media{
         return frequency;
     }
 
-    void SetFrequency(int pfrequency){
-        frequency = pfrequency;
-    }
 
     void ChangeFrequency(int pfrequency){
         cout << "" << endl;
