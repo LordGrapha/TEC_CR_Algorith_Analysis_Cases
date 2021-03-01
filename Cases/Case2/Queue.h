@@ -1,13 +1,20 @@
 #ifndef _queue_
 #define _queue_
+#include "LinkedList.h"
 
-#include <iostream>
 
 template <class T>
-class Queue {
-    //Attributes here.
+class Queue : public LinkedList<T>{
+    
   public:
-    //Methods here.
+    void enqueue(T pData){
+    	LinkedList<T>::addLast(pData);
+	}
+	
+	T dequeue(){
+		T removedData = LinkedList<T>::removeFirst();
+		return removedData;
+	}
 };
 
 #endif
