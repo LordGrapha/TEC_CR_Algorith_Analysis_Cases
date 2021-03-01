@@ -22,14 +22,13 @@ class Media : public IObserver {
     // Print a signal of the media was started
     void Play(){
         cout << "" << endl;
-        cout << "Is playing the media : " << hashNames[id] << endl;
+        cout << "Is playing the media : " << hashNames[id] << endl << endl;
         State = true;
     }
 
     // Print a signal of the media was stopped
     void Stop(){
-        cout << "" << endl;
-        cout << "The media : " << hashNames[id] << " was stopped" << endl;
+        cout << "The media : " << hashNames[id] << " was stopped" << endl << endl;
         State = false;
     }
 
@@ -55,6 +54,12 @@ class Media : public IObserver {
                 Play();
             }
             else{
+                Stop();
+            }
+        }
+        else{
+            if(State){
+                cout << "Other media has been activated." << endl;
                 Stop();
             }
         }

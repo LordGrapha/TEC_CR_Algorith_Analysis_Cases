@@ -1,5 +1,10 @@
 #include "Stack.h"
 #include "Queue.h"
+#include "Television.h"
+#include "Radio.h"
+#include "Spotify.h"
+#include "Youtube.h"
+#include "Application.h"
 
 //Estructura y objeto para probar que se pueden utilizar ambos en la lista, pila y cola
 struct Estruct{
@@ -71,7 +76,25 @@ int main() {
 		cout << q->dequeue().value2 << endl;
 		tmp3 = q->getFirst();
 	}	
-	
-	
+
+	// Ejercicio A : Strategy and Observer
+	cout << endl << endl;
+	Television * television = new Television(1);
+    Radio * radio = new Radio(2);
+    Youtube * youtube = new Youtube(3);
+    Spotify * spotify = new Spotify(4);
+    std::list<IObserver *> observers;
+    observers.push_back(television);
+    observers.push_back(radio);
+    observers.push_back(youtube);
+    observers.push_back(spotify);
+    Application* app = new Application(observers);
+    app->select(spotify);
+    app->select(television);
+    app->select(radio);
+    app->select(youtube);
+    app->select(spotify);
+    app->select(spotify);
+
 	return 0;
 }
