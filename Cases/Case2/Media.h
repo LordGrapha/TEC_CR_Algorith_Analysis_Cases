@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <map>
+#include "IObserver.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ using namespace std;
 
 //Media is a mother class to Television, Radio, Music 
 
-class Media{
+class Media : public IObserver {
 
     private:
 
@@ -48,9 +49,8 @@ class Media{
 
     //This function upgrade the state of the media, if the input id  is equals to media id 
 
-    void Update(int pId){
-
-    if(id == pId){
+    void Update(int pId) override {
+        if(id == pId){
             if(State == false){
                 Play();
             }
@@ -60,6 +60,9 @@ class Media{
         }
     }
 
+    int getId(){
+        return this->id;
+    }
 };
 
 

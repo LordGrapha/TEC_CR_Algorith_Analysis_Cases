@@ -3,8 +3,7 @@
 
 #include "Media.h"
 
-
-class Television : public Media{
+class Television : public Media {
 
     private:
     int Channel = 1;
@@ -24,7 +23,6 @@ class Television : public Media{
         cout << "" << endl;
         cout << "Changed the channel " << Channel << " to channel " << pChannel << endl;
         SetChannel(pChannel);
-
     }
 
 };
