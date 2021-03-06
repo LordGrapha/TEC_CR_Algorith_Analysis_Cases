@@ -1,4 +1,3 @@
-#include <iostream>
 #include <list>
 #include <stdio.h>
 #include <time.h>
@@ -72,4 +71,5 @@ int main() {
 
     std::cout << "\nTime taken " << secs << std::endl;
     return 0;
+
 }
