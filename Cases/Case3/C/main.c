@@ -6,8 +6,7 @@
 #include <sys/resource.h>
 #include <errno.h>
 #include <unistd.h>
-
-
+// test
 int getRandom(){
    int i, n;
    time_t t;
