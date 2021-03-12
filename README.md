@@ -9,7 +9,6 @@ For Case #N+1:
     Details...
 ===============================
 
-===============================
 For Case #2:
 UML Diagram: https://lucid.app/lucidchart/invitations/accept/563f5d7a-356f-49a9-adc6-d35f8b853170
 ===============================
