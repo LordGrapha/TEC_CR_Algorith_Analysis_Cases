@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <cstdlib>
 #include "point.h"
 
 //constants
@@ -38,8 +40,33 @@ std::vector<std::vector<Point*>*>* getConcentrixSquares(int pHeight, int pWidth)
     return matrix;
 }
 
+void exportCsvMatrix(){
+
+    std::vector<std::vector<Point *> *> *testMatrix = getConcentrixSquares(100, 100);
+    std::cout << "Matrix done, writing csv..." << std::endl;
+    std::ofstream outdata;          // outdata is like cin
+    int i;                          // loop index
+    outdata.open("D:/concentrixSquare.csv");   // opens the file
+    if( !outdata ) {                // file couldn't be opened
+        std::cerr << "Error: file could not be opened" << std::endl;
+        exit(1);
+    }
+
+    for (int square = 0; square < testMatrix->size(); square++)
+    {
+        for (int point = 0; point < testMatrix->at(square)->size(); point++)
+        {
+            outdata << testMatrix->at(square)->at(point)->x << ";" << testMatrix->at(square)->at(point)->y << ";";
+        }
+        outdata << ",";
+    }
+    std::cout << "Csv done!" << std::endl;
+    outdata.close();
+}
+
 int main(){
-    std::vector<std::vector<Point*>*>* testMatrix = getConcentrixSquares(100, 100);
+    exportCsvMatrix();
+    /*std::vector<std::vector<Point*>*>* testMatrix = getConcentrixSquares(100, 100);
     std::cout << "Concentrix Squares without deformation:" << std::endl;
     for(int square = 0; square < testMatrix->size(); square++){
         std::cout << "\nSquare " << (square + 1) << ":" << std::endl;
@@ -48,30 +75,6 @@ int main(){
                          testMatrix->at(square)->at(point)->y << ")\t";
         }
         std::cout << std::endl;
-    }
+    }*/
     return 0;
 }
-/*
-#testing
-testMatrix = getConcentrixSquares(100, 100)
-
-#matplotlib test
-print("Matplotlib test")
-
-w = 6
-h = 6
-
-plt.figure(figsize=(w, h))
-#Draw squares
-
-for square in testMatrix:
-    plt.plot(square[0], square[1])
-    plt.plot(square[1], square[3])
-    plt.plot(square[3], square[2])
-    plt.plot(square[2], square[0])
-        
-
-#save a file
-plt.savefig("out.png")
-print("Done!\n\n")
-*/
