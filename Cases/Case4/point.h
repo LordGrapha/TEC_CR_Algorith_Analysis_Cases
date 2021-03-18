@@ -1,5 +1,6 @@
 #ifndef point
 #define point
+#include <string>
 
 class Point{
 public:
@@ -11,6 +12,31 @@ public:
     Point(int pX, int pY){
         this->x = pX;
         this->y = pY;
+    }
+    void setCoordinates(int pX, int pY){
+        this->x = pX;
+        this->y = pY;
+    }
+
+    void addDistance(int pDistance){
+        this->x+=pDistance;
+        this->y+=pDistance;
+    }
+
+    void addInX(int pDistance){
+        this->x+=pDistance;
+    }
+
+    void addInY(int pDistance){
+        this->y+=pDistance;
+    }
+
+    Point* clonePoint(){
+        return new Point(this->x, this->y);
+    }
+
+    std::string toString(){
+        return "("+std::to_string(this->x)+","+std::to_string(this->y)+")";
     }
 
     int x;
