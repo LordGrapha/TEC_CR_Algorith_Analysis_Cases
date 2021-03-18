@@ -1,5 +1,5 @@
-#ifndef point
-#define point
+#ifndef _point_
+#define _point_
 #include <string>
 
 class Point{
@@ -36,7 +36,7 @@ public:
     }
 
     std::string toString(){
-        return "("+std::to_string(this->x)+","+std::to_string(this->y)+")";
+        return std::to_string(this->x)+";"+std::to_string(this->y)+";";
     }
 
     int x;
