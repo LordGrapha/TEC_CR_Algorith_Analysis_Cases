@@ -5,10 +5,9 @@ import matplotlib as plt
 squares = []
 with open('D:\concentrixSquare.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
-    line_count = 0
     for square in csv_reader:
-        for point in square:
-            if(len(point.split(";")) > 1):
+        for line in square:
+            if(len(line.split(";")) > 1):
                 squares.append(point.split(";"))
                 print(squares)
 
