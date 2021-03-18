@@ -7,9 +7,8 @@ with open('D:\concentrixSquare.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for square in csv_reader:
         for line in square:
-            if(len(line.split(";")) > 1):
-                squares.append(point.split(";"))
-                print(squares)
+            lines = line.split(";")[:-1]
+            print(lines)
 
 """
 #matplotlib test
