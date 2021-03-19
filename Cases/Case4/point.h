@@ -13,21 +13,9 @@ public:
         this->x = pX;
         this->y = pY;
     }
-    void setCoordinates(int pX, int pY){
-        this->x = pX;
-        this->y = pY;
-    }
 
     void addDistance(int pDistance){
         this->x+=pDistance;
-        this->y+=pDistance;
-    }
-
-    void addInX(int pDistance){
-        this->x+=pDistance;
-    }
-
-    void addInY(int pDistance){
         this->y+=pDistance;
     }
 

@@ -5,12 +5,12 @@
 
 using namespace std;
 
-void exportCsvMatrix(){
-    Matrix* testMatrix = new Matrix(100, 100);
+void exportCsvMatrix(int pHeight, int pWidth){
+    Matrix* testMatrix = new Matrix(pHeight, pWidth);
     std::cout << "Matrix done, writing csv..." << std::endl;
     std::ofstream outdata;          // outdata is like cin
     int i;                          // loop index
-    outdata.open("D:/concentrixSquare.csv");   // opens the file
+    outdata.open("concentrixSquare.csv");   // opens the file
     if( !outdata ) {                // file couldn't be opened
         std::cerr << "Error: file could not be opened" << std::endl;
         exit(1);
@@ -25,13 +25,14 @@ void exportCsvMatrix(){
                 outdata << testMatrix->squares->at(square)->lines->at(line)->referenceListPoints->at(point)->toString();
             }
             outdata << testMatrix->squares->at(square)->lines->at(line)->finalPoint->toString();
+            outdata << "|"; //Line Separator
         }
-        outdata << ",";
+        outdata << ",";     //Square separator
     }
     std::cout << "Csv done!" << std::endl;
     outdata.close();
 }
 
 int main(){
-    exportCsvMatrix();
+    exportCsvMatrix(200, 300);      //Height and Width
 }

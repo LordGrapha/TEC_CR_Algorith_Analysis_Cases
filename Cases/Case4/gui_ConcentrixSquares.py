@@ -1,33 +1,51 @@
 import csv
-import matplotlib as plt
+import matplotlib.pyplot as plt
+import numpy as np
 
+linesList = []  #Points inside a Line
+pointList =[]   #pairs list
+squareOne = []  #single square with lines
+squares = []    #N Squares
 
-squares = []
-with open('D:\concentrixSquare.csv') as csv_file:
+with open('concentrixSquare.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
-    for square in csv_reader:
-        for line in square:
-            lines = line.split(";")[:-1]
-            print(lines)
+    for squareData in csv_reader:
+        for square in squareData:
+            square = square[:-1]
+            squareOne = []
+            lines = square.split("|")
+            for line in lines:
+                line = line
+                pointList = line.split(";")
+                linesList = []
+                for indexPoint in range(0,len(pointList)-1,2):
+                    linesList.append((int(pointList[indexPoint]), int(pointList[indexPoint+1])))
+                squareOne.append(linesList)
+                linesList = []
+            squares.append(squareOne)
+squares = squares[:-1]
+            
+print("Matplotlib graphication: ")
 
-"""
-#matplotlib test
-print("Matplotlib test")
+ax = plt.subplots()
 
-w = 6
-h = 6
-
-plt.figure(figsize=(w, h))
-#Draw squares
-
+print("Square")
+print(square)
+indexSquare =1
+indexLines =1
 for square in squares:
-    plt.plot(square[0], square[1])
-    plt.plot(square[1], square[3])
-    plt.plot(square[3], square[2])
-    plt.plot(square[2], square[0])
-        
-
-#save a file
-plt.savefig("out.png")
-print("Done!\n\n")
-"""
+    indexLines = 1
+    print("Square ", indexSquare)
+    indexSquare +=1
+    for line in square:
+        print("Line ", indexLines)
+        indexLines += 1
+        print(line)
+        listX = []      #lists to graph the X axis points inside a line
+        listY = []      #lists to graph the Y axis points inside a line
+        for point in line:
+            listY.append(point[1])
+            listX.append(point[0])
+        plt.plot(listX, listY)
+ax = plt.axis([0,400,0,400])
+plt.show()
