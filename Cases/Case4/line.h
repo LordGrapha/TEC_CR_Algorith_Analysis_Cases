@@ -26,7 +26,7 @@ class Line{
                 this->finalPoint=new Point(originX, originY+this->large);
         }
 
-        void setNoise(double pNoisePercentage){ //10 + n ( 56 * 4(51 + r*( 24 )))
+        void setNoise(double pNoisePercentage){ //96nr + 532n + 10
             int noiseSize=getRandom(1, this->large-(this->large*(pNoisePercentage/100)));
             int referencePointsAmount=getRandom(1, this->large/10);
             int distance=noiseSize/referencePointsAmount;

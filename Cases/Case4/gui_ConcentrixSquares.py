@@ -7,7 +7,7 @@ pointList =[]   #pairs list
 squareOne = []  #single square with lines
 squares = []    #N Squares
 
-with open('concentrixSquare.csv') as csv_file:
+with open('testing 1.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for squareData in csv_reader:
         for square in squareData:
