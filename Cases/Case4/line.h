@@ -10,13 +10,12 @@
 class Line{
     public:
         int large;
-        bool orientation, haveNoise; //True to horizontal, false yo vertical
+        bool orientation; //True to horizontal, false to vertical
         Point *initialPoint, *finalPoint;
         std::vector<Point*>* referenceListPoints;
 
         Line(int pLarge, bool pOrientantion, int originX, int originY){
             referenceListPoints=new std::vector<Point*>();
-            this->haveNoise=false;
             this->large=pLarge;
             this->orientation=pOrientantion;
             this->initialPoint=new Point(originX, originY);
@@ -26,23 +25,27 @@ class Line{
             else
                 this->finalPoint=new Point(originX, originY+this->large);
         }
-        void setNoise(double pNoisePercentage){
-            this->haveNoise=true;
+
+        void setNoise(double pNoisePercentage){ //10 + n ( 56 * 4(51 + r*( 24 )))
             int noiseSize=getRandom(1, this->large-(this->large*(pNoisePercentage/100)));
             int referencePointsAmount=getRandom(1, this->large/10);
-            int noiseOrigin=getRandom(1, large-noiseSize);
-            int noiseFinal=noiseOrigin-noiseSize;
             int distance=noiseSize/referencePointsAmount;
             if(orientation){
+                int noiseOrigin=getRandom(this->initialPoint->x, this->finalPoint->x - noiseSize);
+                int noiseFinal=noiseOrigin-noiseSize;
                 for(int index=0; index <referencePointsAmount; index++){
                     referenceListPoints->push_back(new Point(noiseOrigin+(distance*index), this->initialPoint->y+getRandom(-9,9)));
                 }
             }else{
+                int noiseOrigin=getRandom(this->initialPoint->y, this->finalPoint->y - noiseSize);
+                int noiseFinal=noiseOrigin-noiseSize;
                 for(int index=0; index <referencePointsAmount; index++){
-                    referenceListPoints->push_back(new Point(this->initialPoint->x+getRandom(-9,9), noiseOrigin+(distance*index)));
+                    
+                    referenceListPoints->push_back(new Point(this->initialPoint->x+getRandom(-5,5), noiseOrigin+(distance*index)));
                 }
             }
         }
+
 
         void toString(){
             std::cout<<"Punto inicial: "<<this->initialPoint->toString()<<" Punto Final: "<<this->finalPoint->toString()<<"\n";
