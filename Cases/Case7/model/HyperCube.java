@@ -54,7 +54,6 @@ public class HyperCube {
             this.graph.addArc(nodes.get(index + 1), nodes.get(index + 10), 'F');
             this.graph.addArc(nodes.get(index + 2), nodes.get(index + 11), 'F');
         }
-        System.out.println(this.graph.toString());
 
         //A B C D E F G H I J K L M N O P Q R T U V W X Y Z 1
 

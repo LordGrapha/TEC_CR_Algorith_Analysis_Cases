@@ -68,7 +68,7 @@ public class Node <T>{
     
     @Override
     public String toString() {
-        return "\nNode{" + "TValue=" + TValue + ", mark=" + mark + ", visited=" + visited + '}';
+        return "Node{" + "TValue=" + TValue + ", mark=" + mark + ", visited=" + visited + '}';
     }
     
 }

@@ -7,7 +7,7 @@ public class utils {
     }
 
     public static boolean inRange(double pIni, double pEnd, double pValue){
-        return ((pIni < pValue) && (pEnd <= pValue));
+        return ((pIni < pValue) && (pValue <= pEnd));
     }
 
 }

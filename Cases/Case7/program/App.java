@@ -14,8 +14,11 @@ class App {
         answer.add('2');
         answer.add('A');
         answer.add('K');
+        answer.add(' ');
+        answer.add(' ');
+        answer.add(' ');
         KeyGenerator generator = new KeyGenerator(data, answer);
-        //generator.createKey();
+        generator.createKey();
     }
 
 }
